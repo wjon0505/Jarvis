@@ -46,18 +46,11 @@ The tool-neutral role text goes in `agents/<role>.md`. The Claude Code frontmatt
 
 ### 3b. Third-party: LINK in THIRD_PARTY.md (no bytes copied; upstream LICENSE read before each row is written)
 
-| Upstream | Skills we use | Licence on record (to re-read upstream) |
-|---|---|---|
-| github.com/mattpocock/skills | tdd, diagnosing-bugs, code-review (we rename it two-axis-review), to-spec, to-tickets, implement, codebase-design, domain-modeling, improve-codebase-architecture, research, retro, pr, prototype, handoff, writing-for-agents, grilling | MIT |
-| github.com/humanlayer/skills | the show-me text inside `pr` | MIT |
-| Emil Kowalski's skills (**repo URL to confirm**: the local LICENSE names the author only) | animate, animation-vocabulary, apple-design, emil-design-eng, find-animation-opportunities, improve-animations, review-animations | MIT |
-| Leonxlnx's taste skills (**repo URL to confirm**) | taste (design-taste-frontend), taste-redesign | MIT |
-| github.com/cursor/plugins | blast-radius, principle-guard-the-context-window, principle-never-block-on-the-human, technical-writing, unslop | MIT (per header) |
-| github.com/multica-ai/andrej-karpathy-skills | karpathy-guidelines | MIT (per header) |
-| github.com/nextlevelbuilder/ui-ux-pro-max-skill | ui-ux-pro-max | MIT (per header) |
-| github.com/pbakaus/impeccable | impeccable | Apache-2.0 |
-| "ECC" (**repo URL to confirm**; the local headers say only "ECC") | api-connector-builder, contract-first, database-migrations, e2e-testing, error-handling, nestjs-patterns, postgres-patterns, prisma-patterns, react-testing, redis-patterns, vite-patterns | to read upstream |
-| github.com/anthropics/claude-for-legal, github.com/sboghossian/master-claude-for-legal | legal-pack | to read upstream |
+All 45 are LINK. The upstream, the licence and the commit at which it was checked for each are in
+THIRD_PARTY.md: mattpocock/skills, humanlayer/skills, emilkowalski/skills, Leonxlnx/taste-skill,
+cursor/plugins (pstack folder only), multica-ai/andrej-karpathy-skills (MIT per README, no LICENSE file),
+nextlevelbuilder/ui-ux-pro-max-skill, pbakaus/impeccable, affaan-m/ECC, anthropics/claude-for-legal,
+sboghossian/master-claude-for-legal.
 
 Our house edits to these skills (the override headers) are not copied as edited files. The kit explains the pattern, and a reader applies it to their own vendored copy.
 
@@ -65,7 +58,7 @@ Our house edits to these skills (the override headers) are not copied as edited 
 
 | Source | Verdict | Reason |
 |---|---|---|
-| competitor-matrix, go-to-market, metrics-dashboard, pricing-strategy, user-interviews | LINK (github.com/emotixco/claude-skills-founder, to confirm) or EXCLUDE | third-party; zero uses in 900+ transcripts (our own removal proposal P1), so they are listed as "tried, unused" at most |
+| competitor-matrix, go-to-market, metrics-dashboard, pricing-strategy, user-interviews | LINK (github.com/emotixco/claude-skills-founder, MIT) | third-party; zero uses in 900+ transcripts (our own removal proposal P1), so they are listed as "tried, unused" at most |
 
 ## 4. Gates, guards and scripts (repo/)
 
@@ -149,24 +142,25 @@ went into docs/01 and templates/hq/.
 
 | Source | Verdict | Kit form / reason |
 |---|---|---|
-| gstack skill family (about 55 skills; upstream named as garrytan/gstack, **to verify with licence**) | LINK | one THIRD_PARTY row for the family plus the handful we lean on, each with why |
-| AWS agent skills family (23; **upstream to verify**) | LINK | one row for the family |
-| Plugins: superpowers, frontend-design, code-review, security-guidance, skill-creator, claude-md-management, github, context7, typescript-lsp, commit-commands, playwright, feature-dev, figma, remember, legalzoom; marketplace thedotmack (**identify**) | LINK | one row each: marketplace, what we use it for |
+| gstack skill family (about 55 skills; garrytan/gstack, MIT) | LINK | one THIRD_PARTY row for the family |
+| AWS agent skills family (23; **source not confirmed**) | LINK without a URL | listed as "source not confirmed; do not adopt until found and read" |
+| Plugins: superpowers, frontend-design, code-review, security-guidance, skill-creator, claude-md-management, github, context7, typescript-lsp, commit-commands, playwright, feature-dev, figma, remember, legalzoom; second marketplace thedotmack/claude-mem (Apache-2.0) | LINK | the marketplace linked once (Apache-2.0 for the marketplace repo; each plugin's own licence is in its entry), one row per plugin with why |
 | MCP: aws-mcp (user), shadcn (project) | LINK | shadcn browse/fetch only |
 | Hosted connectors: mail, drive, calendar, docs, browser automation | LINK (tool-neutral) | described as "connectors", no account |
-| SessionStart hook (matcher startup/resume/clear/compact/fork → pane-state script, 10 s timeout) | COPY-GENERIC | hooks/session-start-pane-state.sh + adapters/claude-code/settings hook block. **Waiting on the script** |
+| SessionStart hook (matcher startup/resume/clear/compact/fork → pane-state script, 10 s timeout) | LINK (the script is herdr's, herdrdev/herdr, Apache-2.0) | hooks/README.md patterns + adapters/claude-code/hooks/settings-hooks.example.json wiring |
 | Compact-time REMEMBER block and the .remember/ layout (now.md, today-*.md, recent.md, archive*.md, core-memories.md) | COPY-GENERIC (layout) | docs/02; the plugin itself is LINK |
-| doorbell.sh (one watcher, exits on any BELL change, a remote reviewer BELL, or an Engineering stall; orchestrator re-arms) | COPY-GENERIC | scripts/doorbell.sh. **Waiting on the script** |
-| mac-guard/guard.sh (stop lanes on admin-machine load) | COPY-GENERIC | scripts/load-guard.sh. **Waiting** |
-| launch-head.sh, launch-head-jarvis.sh | COPY-GENERIC | scripts/launch-head.sh (one script, host as a variable). **Waiting** |
-| the department-head model doc | COPY-GENERIC | docs/01 "heads are real sub-orchestrators; the orchestrator reads STATUS/BELL only". **Waiting** if MAIN sends the text; otherwise written from the bundle's description |
+| doorbell.sh (one watcher, exits on any BELL change, a remote reviewer BELL, or an Engineering stall; orchestrator re-arms) | COPY-GENERIC | scripts/hq/doorbell.sh |
+| the coordinator-machine guard (stop lanes on admin-machine load) | COPY-GENERIC | scripts/hq/load-guard.sh (Linux and macOS) |
+| the two head launchers | COPY-GENERIC | scripts/hq/launch-head.sh (one script, paths as variables) |
+| the department-head model doc | COPY-GENERIC | docs/01 and templates/hq/ |
 | hq layout: per-department BELL, STATUS, outbox; BELL-ARCHIVE.log; main/; MORNING.md | COPY-GENERIC | templates/hq/ with fictional entries |
 | memory format and rules | COPY-GENERIC | templates/MEMORY.md, templates/memory-file.md (fictional) |
 | usage policy (97% stop, pace on session window, never paid overage) | COPY-GENERIC | docs/05 and scripts/usage-meter config |
 | ledgers: main log, request ledger, decisions log with [OWNER REVIEW], resume file | COPY-GENERIC (formats) | templates/ |
 
-## 11. Open questions for MAIN
+## 11. Open items
 
-1. **Upstream URLs to confirm** for Emil Kowalski's skills, Leonxlnx's taste skills, "ECC", and the 5 commands. I will not guess a URL. I can read them with a plain `git clone` into the review area if MAIN allows; `gh api` is denied on this host.
-2. **LICENSE** for the kit itself: a placeholder until the founder chooses.
-3. **Product-specific skill:** `security-audit` ships generic. Should the ECC stack skills (NestJS, Prisma, Redis, Vite) appear in THIRD_PARTY.md as "what a TypeScript monorepo used"? I recommend yes, under a "stack-specific" heading.
+1. Upstream URLs and licences: resolved through the hosting site's API (licence-first rule). One is
+   still open: the AWS skills' source. THIRD_PARTY.md lists them without a URL.
+2. **LICENSE** for the kit itself: a placeholder until the owner chooses.
+3. The ECC stack skills appear in THIRD_PARTY.md under "Stack patterns", as what a TypeScript monorepo used.
