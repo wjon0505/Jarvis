@@ -162,5 +162,5 @@ went into docs/01 and templates/hq/.
 
 1. Upstream URLs and licences: resolved through the hosting site's API (licence-first rule). One is
    still open: the AWS skills' source. THIRD_PARTY.md lists them without a URL.
-2. **LICENSE** for the kit itself: a placeholder until the owner chooses.
+2. **LICENSE** for the kit itself: MIT, chosen by the owner.
 3. The ECC stack skills appear in THIRD_PARTY.md under "Stack patterns", as what a TypeScript monorepo used.

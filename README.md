@@ -60,4 +60,5 @@ Tell your agent:
 
 ## Licence
 
-See `LICENSE`. Third-party work is linked, not copied, and keeps its own licence.
+MIT, see `LICENSE`. That covers this kit only. Third-party work is linked, not copied, and keeps its own
+licence (THIRD_PARTY.md).
