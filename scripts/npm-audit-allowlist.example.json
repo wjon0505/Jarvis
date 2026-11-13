@@ -1,0 +1,17 @@
+{
+  "_readme": "jarvis-kit: generic example allow-list for npm-audit-gate.mjs; the entry below is fictional. Copy to security/npm-audit-allowlist.json and EMPTY the entries array before first use. Every entry needs a reason a reviewer can check and an expiry date; an expired or stale entry fails the gate.",
+  "addedBy": "<OWNER>",
+  "entries": [
+    {
+      "id": "GHSA-abcd-efgh-ijkl",
+      "package": "example-markdown-parser",
+      "severity": "moderate",
+      "title": "Example: catastrophic backtracking in a link pattern",
+      "vulnerableRange": "<2.4.1",
+      "reason": "Reached only from the docs build, which renders our own committed files; no user input reaches the parser. The fixed version needs a major upgrade of the docs tool, tracked as REQ-0042.",
+      "addedAt": "2030-01-10",
+      "expiresAt": "2030-03-10",
+      "owner": "<OWNER>"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "_comment": "jarvis-kit: generic example config for recall.mjs; every path is a placeholder. Copy to recall.config.json beside your repo (it is per-machine: gitignore it). '~' is your home directory; repoRoot is relative to this file; every other relative path is relative to repoRoot. The index holds transcript text: keep indexDir OUTSIDE the repository.",
+  "repoRoot": ".",
+  "useMainCheckout": true,
+  "indexDir": "~/.jarvis/recall",
+  "docs": {
+    "files": ["AGENTS.md", "CLAUDE.md"],
+    "dirs": ["docs"]
+  },
+  "keyed": [
+    { "file": "docs/BACKLOG.md", "source": "backlog", "split": "rows", "idPattern": "REQ-\\d+" },
+    { "file": "docs/DECISIONS_LOG.md", "source": "decisions", "split": "sections", "idPattern": "DEC-\\d+" },
+    { "file": "docs/REQUEST_LEDGER.md", "source": "ledger", "split": "rows" }
+  ],
+  "memory": {
+    "dirs": ["~/.claude/projects/<project-slug>/memory"],
+    "files": ["~/<RESUME_FILE>.md"]
+  },
+  "scratch": {
+    "dirs": ["~/<scratch-backup-dir>"],
+    "maxBytes": 1048576
+  },
+  "transcripts": {
+    "dirs": ["~/.claude/projects/<project-slug>"],
+    "format": "claude-code-jsonl"
+  },
+  "idPatterns": ["REQ-\\d+", "DEC-\\d+", "GHSA-[a-z0-9-]+", "CVE-\\d{4}-\\d+"],
+  "exclude": []
+}

@@ -1,0 +1,3 @@
+2030-01-12 18:05 RESUMED (orchestrator's word). Queue: verify last cycle's three adoptions; tool trial starts 2030-01-16.
+2030-01-12 23:33 DONE: skill library branch final sha 7c1e2d4; orchestrator merges after the verifier is green. WAITING ON: verifier. Idle until timer.
+2030-01-14 09:05 CYCLE done; BELL sent. Next: 2030-01-16 timer.

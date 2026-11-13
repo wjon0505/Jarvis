@@ -1,0 +1,10 @@
+{
+  "_comment": "jarvis-kit: generic example manifest for check-skill-approval.mjs; the entry is fictional and its hash is a placeholder. One entry per skill directory. sha256 = sha256 over the sorted lines '<relpath>\\0<sha256 of file bytes>' joined by '\\n'. Add or change an entry ONLY on the owner's approval of that exact text, and name the decision in 'approved'. Generate an entry with: node check-skill-approval.mjs --hash skills/<name>",
+  "skills": {
+    "release-notes": {
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "files": 2,
+      "approved": "DEC-017: owner read SKILL.md and templates/notes.md in full"
+    }
+  }
+}

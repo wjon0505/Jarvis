@@ -1,0 +1,30 @@
+# jarvis-kit: generic example config for lane-disarm.sh; every key name here is fictional. Copy to lane-disarm.keys and list YOUR keys.
+#
+# One line per key:  KEY=blank | KEY=false | KEY=mock | KEY=set:<value>
+# Derive this list from where credentials come from (your intake scripts, your env template),
+# not from memory: a key nobody listed is a key the disarm cannot see.
+
+# Live credentials: blank them. An empty value should select your mock provider.
+EXAMPLE_PAYMENTS_SECRET_KEY=blank
+EXAMPLE_PAYMENTS_WEBHOOK_SECRET=blank
+EXAMPLE_SMS_AUTH_TOKEN=blank
+EXAMPLE_MAPS_API_KEY=blank
+EXAMPLE_PARTNER_REFRESH_TOKEN=blank
+
+# Feature switches for outbound connectors: off.
+EXAMPLE_PARTNER_SYNC_ENABLED=false
+
+# Provider selectors: force the mock.
+EMAIL_PROVIDER=mock
+
+# Point shared services at local hosts.
+DATABASE_URL=set:postgres://localhost:5432/app_lane
+REDIS_URL=set:redis://localhost:6379/9
+
+# Close a cloud SDK's credential-file fallback (a path under /dev/null can never be opened).
+# These are appended to the boot env file when absent.
+AWS_ACCESS_KEY_ID=blank
+AWS_SECRET_ACCESS_KEY=blank
+AWS_SHARED_CREDENTIALS_FILE=set:/dev/null/lane-disarmed
+AWS_CONFIG_FILE=set:/dev/null/lane-disarmed
+AWS_EC2_METADATA_DISABLED=set:true
